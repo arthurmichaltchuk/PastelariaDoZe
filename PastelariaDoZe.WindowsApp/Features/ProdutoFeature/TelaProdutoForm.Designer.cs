@@ -46,7 +46,11 @@ namespace PastelariaDoZe.WindowsApp.Features.ProdutoFeature
             this.label2 = new System.Windows.Forms.Label();
             this.text_Qntd = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnBuscarFoto = new System.Windows.Forms.Button();
+            this.pictureBoxImagem = new System.Windows.Forms.PictureBox();
+            this.openFileDialogImagem = new System.Windows.Forms.OpenFileDialog();
             this.header_Funcionario.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImagem)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -55,7 +59,7 @@ namespace PastelariaDoZe.WindowsApp.Features.ProdutoFeature
             this.label1.Font = new System.Drawing.Font("Lucida Sans Unicode", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(59, 97);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 17);
+            this.label1.Size = new System.Drawing.Size(42, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome:";
             // 
@@ -63,9 +67,9 @@ namespace PastelariaDoZe.WindowsApp.Features.ProdutoFeature
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Lucida Sans Unicode", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(280, 139);
+            this.label3.Location = new System.Drawing.Point(335, 139);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(127, 17);
+            this.label3.Size = new System.Drawing.Size(98, 15);
             this.label3.TabIndex = 2;
             this.label3.Text = "Data de Validade:";
             // 
@@ -73,9 +77,9 @@ namespace PastelariaDoZe.WindowsApp.Features.ProdutoFeature
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Lucida Sans Unicode", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(330, 177);
+            this.label5.Location = new System.Drawing.Point(385, 177);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 17);
+            this.label5.Size = new System.Drawing.Size(37, 15);
             this.label5.TabIndex = 4;
             this.label5.Text = "Total:";
             // 
@@ -85,7 +89,7 @@ namespace PastelariaDoZe.WindowsApp.Features.ProdutoFeature
             this.label7.Font = new System.Drawing.Font("Lucida Sans Unicode", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label7.Location = new System.Drawing.Point(81, 56);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(25, 17);
+            this.label7.Size = new System.Drawing.Size(20, 15);
             this.label7.TabIndex = 6;
             this.label7.Text = "Id:";
             // 
@@ -96,14 +100,14 @@ namespace PastelariaDoZe.WindowsApp.Features.ProdutoFeature
             this.text_IdProduto.ForeColor = System.Drawing.Color.DarkSeaGreen;
             this.text_IdProduto.Location = new System.Drawing.Point(107, 53);
             this.text_IdProduto.Name = "text_IdProduto";
-            this.text_IdProduto.Size = new System.Drawing.Size(116, 28);
+            this.text_IdProduto.Size = new System.Drawing.Size(116, 24);
             this.text_IdProduto.TabIndex = 8;
             // 
             // text_NomeProduto
             // 
             this.text_NomeProduto.Location = new System.Drawing.Point(107, 92);
             this.text_NomeProduto.Name = "text_NomeProduto";
-            this.text_NomeProduto.Size = new System.Drawing.Size(387, 28);
+            this.text_NomeProduto.Size = new System.Drawing.Size(442, 24);
             this.text_NomeProduto.TabIndex = 0;
             this.text_NomeProduto.Enter += new System.EventHandler(this.txtCampo_Enter);
             this.text_NomeProduto.Leave += new System.EventHandler(this.txtCampo_Leave);
@@ -112,7 +116,7 @@ namespace PastelariaDoZe.WindowsApp.Features.ProdutoFeature
             // 
             this.bt_GravarFuncionario.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.bt_GravarFuncionario.Font = new System.Drawing.Font("Lucida Sans Unicode", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.bt_GravarFuncionario.Location = new System.Drawing.Point(312, 273);
+            this.bt_GravarFuncionario.Location = new System.Drawing.Point(462, 416);
             this.bt_GravarFuncionario.Name = "bt_GravarFuncionario";
             this.bt_GravarFuncionario.Size = new System.Drawing.Size(87, 27);
             this.bt_GravarFuncionario.TabIndex = 6;
@@ -124,7 +128,7 @@ namespace PastelariaDoZe.WindowsApp.Features.ProdutoFeature
             // 
             this.bt_Cancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.bt_Cancelar.Font = new System.Drawing.Font("Lucida Sans Unicode", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.bt_Cancelar.Location = new System.Drawing.Point(407, 273);
+            this.bt_Cancelar.Location = new System.Drawing.Point(557, 416);
             this.bt_Cancelar.Name = "bt_Cancelar";
             this.bt_Cancelar.Size = new System.Drawing.Size(87, 27);
             this.bt_Cancelar.TabIndex = 7;
@@ -134,18 +138,18 @@ namespace PastelariaDoZe.WindowsApp.Features.ProdutoFeature
             // date_ValidadeProduto
             // 
             this.date_ValidadeProduto.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.date_ValidadeProduto.Location = new System.Drawing.Point(380, 134);
+            this.date_ValidadeProduto.Location = new System.Drawing.Point(435, 134);
             this.date_ValidadeProduto.Name = "date_ValidadeProduto";
-            this.date_ValidadeProduto.Size = new System.Drawing.Size(114, 28);
+            this.date_ValidadeProduto.Size = new System.Drawing.Size(114, 24);
             this.date_ValidadeProduto.TabIndex = 2;
             this.date_ValidadeProduto.Enter += new System.EventHandler(this.txtCampo_Enter);
             this.date_ValidadeProduto.Leave += new System.EventHandler(this.txtCampo_Leave);
             // 
             // text_Total
             // 
-            this.text_Total.Location = new System.Drawing.Point(378, 174);
+            this.text_Total.Location = new System.Drawing.Point(433, 174);
             this.text_Total.Name = "text_Total";
-            this.text_Total.Size = new System.Drawing.Size(116, 28);
+            this.text_Total.Size = new System.Drawing.Size(116, 24);
             this.text_Total.TabIndex = 5;
             this.text_Total.Text = "0";
             this.text_Total.Enter += new System.EventHandler(this.txtCampo_Enter);
@@ -159,7 +163,7 @@ namespace PastelariaDoZe.WindowsApp.Features.ProdutoFeature
             this.header_Funcionario.Controls.Add(this.label8);
             this.header_Funcionario.Location = new System.Drawing.Point(-3, -1);
             this.header_Funcionario.Name = "header_Funcionario";
-            this.header_Funcionario.Size = new System.Drawing.Size(546, 29);
+            this.header_Funcionario.Size = new System.Drawing.Size(681, 29);
             this.header_Funcionario.TabIndex = 10;
             // 
             // label8
@@ -167,7 +171,7 @@ namespace PastelariaDoZe.WindowsApp.Features.ProdutoFeature
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(10, 6);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(157, 17);
+            this.label8.Size = new System.Drawing.Size(124, 15);
             this.label8.TabIndex = 0;
             this.label8.Text = "Cadastro de Produtos";
             // 
@@ -175,7 +179,7 @@ namespace PastelariaDoZe.WindowsApp.Features.ProdutoFeature
             // 
             this.text_ValorUnitario.Location = new System.Drawing.Point(107, 136);
             this.text_ValorUnitario.Name = "text_ValorUnitario";
-            this.text_ValorUnitario.Size = new System.Drawing.Size(116, 28);
+            this.text_ValorUnitario.Size = new System.Drawing.Size(116, 24);
             this.text_ValorUnitario.TabIndex = 12;
             this.text_ValorUnitario.Text = "0";
             this.text_ValorUnitario.Enter += new System.EventHandler(this.txtCampo_Enter);
@@ -187,7 +191,7 @@ namespace PastelariaDoZe.WindowsApp.Features.ProdutoFeature
             this.label2.Font = new System.Drawing.Font("Lucida Sans Unicode", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(18, 141);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 17);
+            this.label2.Size = new System.Drawing.Size(83, 15);
             this.label2.TabIndex = 11;
             this.label2.Text = "Valor unitário:";
             // 
@@ -195,7 +199,7 @@ namespace PastelariaDoZe.WindowsApp.Features.ProdutoFeature
             // 
             this.text_Qntd.Location = new System.Drawing.Point(107, 174);
             this.text_Qntd.Name = "text_Qntd";
-            this.text_Qntd.Size = new System.Drawing.Size(116, 28);
+            this.text_Qntd.Size = new System.Drawing.Size(116, 24);
             this.text_Qntd.TabIndex = 14;
             this.text_Qntd.Text = "0";
             this.text_Qntd.Enter += new System.EventHandler(this.txtCampo_Enter);
@@ -207,15 +211,43 @@ namespace PastelariaDoZe.WindowsApp.Features.ProdutoFeature
             this.label4.Font = new System.Drawing.Font("Lucida Sans Unicode", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.Location = new System.Drawing.Point(29, 177);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 17);
+            this.label4.Size = new System.Drawing.Size(72, 15);
             this.label4.TabIndex = 13;
             this.label4.Text = "Quantidade:";
             // 
+            // btnBuscarFoto
+            // 
+            this.btnBuscarFoto.Font = new System.Drawing.Font("Lucida Sans Unicode", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnBuscarFoto.Location = new System.Drawing.Point(462, 246);
+            this.btnBuscarFoto.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBuscarFoto.Name = "btnBuscarFoto";
+            this.btnBuscarFoto.Size = new System.Drawing.Size(87, 27);
+            this.btnBuscarFoto.TabIndex = 118;
+            this.btnBuscarFoto.Text = "Carregar";
+            this.btnBuscarFoto.UseVisualStyleBackColor = true;
+            this.btnBuscarFoto.Click += new System.EventHandler(this.btnBuscarFoto_Click);
+            // 
+            // pictureBoxImagem
+            // 
+            this.pictureBoxImagem.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.pictureBoxImagem.Location = new System.Drawing.Point(18, 246);
+            this.pictureBoxImagem.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBoxImagem.Name = "pictureBoxImagem";
+            this.pictureBoxImagem.Size = new System.Drawing.Size(425, 197);
+            this.pictureBoxImagem.TabIndex = 117;
+            this.pictureBoxImagem.TabStop = false;
+            // 
+            // openFileDialogImagem
+            // 
+            this.openFileDialogImagem.FileName = "openFileDialogImagem";
+            // 
             // TelaProdutoForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(537, 327);
+            this.ClientSize = new System.Drawing.Size(657, 458);
+            this.Controls.Add(this.btnBuscarFoto);
+            this.Controls.Add(this.pictureBoxImagem);
             this.Controls.Add(this.text_Qntd);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.text_ValorUnitario);
@@ -242,6 +274,7 @@ namespace PastelariaDoZe.WindowsApp.Features.ProdutoFeature
             this.Text = "Cadastro de Funcionários";
             this.header_Funcionario.ResumeLayout(false);
             this.header_Funcionario.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImagem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -265,5 +298,8 @@ namespace PastelariaDoZe.WindowsApp.Features.ProdutoFeature
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox text_Qntd;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnBuscarFoto;
+        private System.Windows.Forms.PictureBox pictureBoxImagem;
+        private System.Windows.Forms.OpenFileDialog openFileDialogImagem;
     }
 }

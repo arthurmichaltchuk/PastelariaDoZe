@@ -1,5 +1,6 @@
 ﻿using PastelariaDoZe.Dominio.Shared;
 using System;
+using System.Linq;
 
 namespace PastelariaDoZe.Dominio.ProdutoModule
 {
@@ -10,12 +11,15 @@ namespace PastelariaDoZe.Dominio.ProdutoModule
         public DateTime DataValidade { get; set; }
         public int Quantidade { get; set; }
 
-        public Produto(string nome, double valorUnitario, DateTime dataValidade, int quantidade)
+        public byte[] Foto { get; set; }
+
+        public Produto(string nome, double valorUnitario, DateTime dataValidade, int quantidade, byte[] foto)
         {
             this.Nome = nome;
             this.ValorUnitario = valorUnitario;
             this.DataValidade = dataValidade;
             this.Quantidade = quantidade;
+            this.Foto = foto;
         }
 
         public Produto()
@@ -45,6 +49,9 @@ namespace PastelariaDoZe.Dominio.ProdutoModule
             if (Quantidade <= 0)
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Quantidade está inválido";
 
+            if (Foto.Length == 0)
+                resultadoValidacao = "O campo Foto é obrigatório";
+
             if (resultadoValidacao == "")
                 resultadoValidacao = "ESTA_VALIDO";
 
@@ -63,12 +70,13 @@ namespace PastelariaDoZe.Dominio.ProdutoModule
                 && Nome == other.Nome
                 && Quantidade == other.Quantidade
                 && ValorUnitario == other.ValorUnitario
-                && DataValidade == other.DataValidade;
+                && DataValidade == other.DataValidade
+                && Foto.SequenceEqual(other.Foto);
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(Id, Nome, ValorUnitario, DataValidade, Quantidade);
+            return HashCode.Combine(Id, Nome, ValorUnitario, DataValidade, Quantidade, Foto);
         }
     }
 }

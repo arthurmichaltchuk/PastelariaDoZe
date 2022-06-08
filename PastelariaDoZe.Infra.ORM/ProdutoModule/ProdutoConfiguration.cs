@@ -24,6 +24,8 @@ namespace PastelariaDoZe.Infra.ORM.ProdutoModule
             builder.Property(produto => produto.DataValidade).HasColumnType("DATE").IsRequired();
 
             builder.Property(produto => produto.Quantidade).HasColumnType("INT").IsRequired();
+
+            builder.Property(veiculo => veiculo.Foto).HasColumnType("image").IsRequired();
         }
     }
 }

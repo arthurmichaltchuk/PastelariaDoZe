@@ -35,9 +35,7 @@ namespace PastelariaDoZe.WindowsApp.Features.FuncionarioFeature
 
                 new DataGridViewTextBoxColumn {DataPropertyName = "Data de Entrada", HeaderText = "Data de Entrada"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "Usuario", HeaderText = "Usuário"},
-
-                new DataGridViewTextBoxColumn {DataPropertyName = "Senha", HeaderText = "Senha"}
+                new DataGridViewTextBoxColumn {DataPropertyName = "Usuario", HeaderText = "Usuário"}
             };
 
             return colunas;
@@ -55,25 +53,13 @@ namespace PastelariaDoZe.WindowsApp.Features.FuncionarioFeature
             foreach (Funcionario funcionario in funcionarios)
             {
                 gridFuncionarios.Rows.Add(funcionario.Id, funcionario.Nome, funcionario.CpfFuncionario,
-                    funcionario.Salario, funcionario.DataEntrada, funcionario.Usuario, MakeSenha(funcionario.Senha));
+                    funcionario.Salario, funcionario.DataEntrada, funcionario.Usuario);
 
             }
         }
         public void AtualizarAparencia()
         {
             ConfigurarGridLightMode();
-        }
-
-        public string MakeSenha(string input)
-        {
-            int tamanho = input.Length;
-            string senha = "";
-
-            for (int i = 0; i < tamanho; i++)
-            {
-                senha += "*";
-            }
-            return senha;
         }
     }
 }

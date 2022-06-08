@@ -2,6 +2,7 @@
 using System;
 using System.Drawing;
 using System.IO;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 
 
@@ -10,6 +11,8 @@ namespace PastelariaDoZe.WindowsApp.Features.FuncionarioFeature
     public partial class TelaFuncionarioForm : Form
     {
         private Funcionario funcionario;
+        private const int SaltSize = 16;
+        private const int KeySize = 32;
         public TelaFuncionarioForm()
         {
             InitializeComponent();
@@ -28,7 +31,6 @@ namespace PastelariaDoZe.WindowsApp.Features.FuncionarioFeature
 
             set
             {
-
                 funcionario = value;
                 text_IdFuncionario.Text = funcionario.Id.ToString();
                 text_NomeFuncionario.Text = funcionario.Nome;
@@ -36,7 +38,7 @@ namespace PastelariaDoZe.WindowsApp.Features.FuncionarioFeature
                 text_salarioFuncionario.Text = funcionario.Salario.ToString();
                 date_EntradaFuncionario.Value = Convert.ToDateTime(funcionario.DataEntrada);
                 text_UsuarioFuncionario.Text = funcionario.Usuario;
-                text_SenhaFuncionario.Text = funcionario.Senha;
+                text_SenhaFuncionario.Text = Criptografia.Base64Decode(funcionario.Senha);
             }
         }
 
@@ -68,7 +70,7 @@ namespace PastelariaDoZe.WindowsApp.Features.FuncionarioFeature
             funcionario.Nome = text_NomeFuncionario.Text;
             funcionario.CpfFuncionario = text_CPFFuncionario.Text;
             funcionario.Usuario = text_UsuarioFuncionario.Text;
-            funcionario.Senha = text_SenhaFuncionario.Text;
+            funcionario.Senha = Criptografia.Base64Encode(text_SenhaFuncionario.Text);
             funcionario.Salario = text_salarioFuncionario.Text == "" ? 0 : Convert.ToDecimal(text_salarioFuncionario.Text);
             funcionario.DataEntrada = date_EntradaFuncionario.Value;
         }

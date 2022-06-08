@@ -130,9 +130,9 @@ namespace PastelariaDoZe.WindowsApp.Features.ClienteFeature
 
         public UserControl ObterTabela()
         {
-            List<ClienteCPF> clientesCPF = CPFService.GetAll();
+            List<ClienteCNPJ> clientesCNPJ = CNPJService.GetAll();
 
-            tabelaClientes.AtualizarRegistros(clientesCPF);
+            tabelaClientes.AtualizarRegistros(clientesCNPJ);
 
             return tabelaClientes;
         }
@@ -177,7 +177,6 @@ namespace PastelariaDoZe.WindowsApp.Features.ClienteFeature
 
         private void AtualizarGrid(ClienteBase clienteSelecionado)
         {
-            //sim
             IEnumerable<ClienteBase> clientes = clienteSelecionado is ClienteCPF ? CPFService.GetAll() : CNPJService.GetAll();
 
             tabelaClientes.AtualizarRegistros(clientes);
